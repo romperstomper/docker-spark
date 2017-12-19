@@ -15,16 +15,14 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
   spark_master:
-    image: 47deg/spark:1.6.3
+    image: spark_1.6.3
     ports:
     - "7077:7077"
     - "8080:8080"
     container_name: spark_master
     tty: true
-    command: /start-master.sh
 
   spark_worker:
-    image: 47deg/spark:1.6.3
+    image: spark_1.6.3
     links:
       - spark_master
-    command: /start-worker.sh 
